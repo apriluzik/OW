@@ -41,25 +41,25 @@ public class HeroesAdapter extends RecyclerView.Adapter {
 
 
         Picasso.with(ctx).load(items.get(position).imgURL).into(mholder.img);
-        mholder.name.setTypeface(Typeface.createFromAsset(ctx.getAssets(),"fonts/koverwatch.ttf"));
         mholder.name.setText(items.get(position).name);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return items.size();
     }
 
     class HeroHolder extends RecyclerView.ViewHolder{
 
         TextView name;
         ImageView img;
-
+        Typeface typeface;
         public HeroHolder(View itemView) {
             super(itemView);
-
+            typeface = Typeface.createFromAsset(ctx.getAssets(),"fonts/koverwatch.ttf");
             name = itemView.findViewById(R.id.hero_name);
+            name.setTypeface(typeface);
             img = itemView.findViewById(R.id.hero_img);
 
         }

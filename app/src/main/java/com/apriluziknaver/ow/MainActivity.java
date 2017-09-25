@@ -119,9 +119,6 @@ public class MainActivity extends AppCompatActivity {
                     heroItem.comment = object2.getString("대사");
                     heroItem.story = object2.getString("스토리");
 
-
-
-
                 }
                 heroItems.add(heroItem);
 
