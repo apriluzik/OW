@@ -1,5 +1,6 @@
 package com.apriluziknaver.ow;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,7 +31,6 @@ public class HeroesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heroes);
 
-
         Log.d("히어로액티비티","1");
         recyclerView = (RecyclerView) findViewById(R.id.rccHero);
         hAdapter = new HeroesAdapter(this,heroItems);
@@ -56,7 +56,7 @@ public class HeroesActivity extends AppCompatActivity {
         AssetManager.AssetInputStream ais;
         BufferedReader reader;
         String line;
-        String page;
+        String page = getIntent().getStringExtra("Page");
 
         JSONObject object;
         JSONObject object2;
@@ -68,24 +68,24 @@ public class HeroesActivity extends AppCompatActivity {
         public void run() {
             super.run();
 
-            assetManager = getResources().getAssets();
-            ais=null;
+//            assetManager = getResources().getAssets();
+//            ais=null;
 
             try{
-
-                ais = (AssetManager.AssetInputStream)assetManager.open("json/heroes.json");
-                reader = new BufferedReader(new InputStreamReader(ais,"UTF-8"));
-
-                line= null;
-                page="";
-
-                while((line=reader.readLine())!=null){
-
-                    Log.d("라인:",line);
-                    page+=line;
-                }
-
-                ais.close();
+//
+//                ais = (AssetManager.AssetInputStream)assetManager.open("json/heroes.json");
+//                reader = new BufferedReader(new InputStreamReader(ais,"UTF-8"));
+//
+//                line= null;
+//                page="";
+//
+//                while((line=reader.readLine())!=null){
+//
+//                    Log.d("라인:",line);
+//                    page+=line;
+//                }
+//
+//                ais.close();
 
                 object = new JSONObject(page);
                 keys = object.keys();

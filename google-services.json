@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "900812525873",
+    "firebase_url": "https://overwatch-aee5c.firebaseio.com",
+    "project_id": "overwatch-aee5c",
+    "storage_bucket": "overwatch-aee5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900812525873:android:af87c983244f4955",
+        "android_client_info": {
+          "package_name": "com.apriluziknaver.ow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900812525873-pma07ase5tdtpivemomc553t0c4mqcsc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOuArC3U26SHc4W1AMJ-JsMMSj91fW9Co"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
