@@ -19,7 +19,6 @@ public class HeroesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<HeroItem> heroItems=new ArrayList<>();
 
-    ArrayList<HeroItem> heroItems2=new ArrayList<>();
     HeroesAdapter hAdapter ;
     ReadJson readJson;
 

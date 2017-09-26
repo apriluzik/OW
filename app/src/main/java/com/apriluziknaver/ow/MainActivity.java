@@ -33,14 +33,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MobileAds.initialize(this,"ca-app-pub-9476856001766966~2857819325");
         adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
                 Log.i("Ads", "onAdLoaded");
+
             }
 
             @Override
@@ -73,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         readJson = new ReadJson();
         readJson.start();
         intent = new Intent(this,HeroesActivity.class);
-        MobileAds.initialize(this,"ca-app-pub-9476856001766966~2857819325");
+
     }
 
     public void clickBtn(View v){
