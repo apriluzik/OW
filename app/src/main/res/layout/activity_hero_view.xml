@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,36 +7,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.apriluziknaver.ow.HeroViewActivity">
-
-    <android.support.v7.widget.CardView
-        android:backgroundTint="#000"
-        android:layout_margin="2dp"
-        app:cardCornerRadius="3dp"
+    <ImageView
+        android:src="@drawable/backgroundstory"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <TextView
         android:id="@+id/view_name"
         android:text="NAMENAME"
         android:padding="8dp"
         android:textSize="32sp"
         android:gravity="center"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    </android.support.v7.widget.CardView>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp">
-
-        <ImageView
-            android:id="@+id/view_bgHero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/backgroundstory" />
+        android:layout_height="240dp"
+        android:tint="#88000000">
 
         <TextView
-            android:id="@+id/view_about1"
+            android:id="@+id/view_title"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_width="match_parent"
@@ -50,11 +47,6 @@
             android:layout_alignParentStart="true" />
     </RelativeLayout>
 
-    <android.support.v7.widget.CardView
-        app:cardCornerRadius="3dp"
-        android:layout_margin="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_gravity="right"
@@ -75,12 +67,18 @@
             android:text="공격"
             android:layout_marginRight="4dp"
             android:textSize="32sp"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:id="@+id/view_part"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
-    </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rccability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-</LinearLayout>
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+</FrameLayout>

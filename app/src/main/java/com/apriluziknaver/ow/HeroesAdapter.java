@@ -77,9 +77,31 @@ public class HeroesAdapter extends RecyclerView.Adapter {
                     Intent intent = new Intent(ctx,HeroViewActivity.class);
                     intent.putExtra("Index",index);
                     intent.putExtra("SelectHero",selectHero.toString());
+                    intent.putExtra("Hero",items.get(index));
+
+//                    intent.putExtra("Skill01",items.get(index).skill01);
+//                    intent.putExtra("Skill02",items.get(index).skill02);
+//                    intent.putExtra("Skill03",items.get(index).skill03);
+//                    intent.putExtra("Skill04",items.get(index).skill04);
+//
+//                    intent.putExtra("Icon01",items.get(index).icon01);
+//                    intent.putExtra("Icon02",items.get(index).icon02);
+//                    intent.putExtra("Icon03",items.get(index).icon03);
+//                    intent.putExtra("Icon04",items.get(index).icon04);
+//
+//                    if(items.get(index).skill05!=null) {
+//                        intent.putExtra("Icon05", items.get(index).icon05);
+//                        intent.putExtra("Skill05", items.get(index).skill05);
+//                    }
+//                    if(items.get(index).skill06!=null) {
+//                        intent.putExtra("Icon06", items.get(index).icon06);
+//                        intent.putExtra("Skill06", items.get(index).skill06);
+//
+//                    }
+//                    Log.d("어댑터2", items.get(index).skill01);
+
                     ctx.startActivity(intent);
 
-                    Log.d("어댑터","index: "+index+" HeroKey: "+selectHero);
                 }
             });
 

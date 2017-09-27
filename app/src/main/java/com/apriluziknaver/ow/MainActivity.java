@@ -17,11 +17,16 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
     AdView adView;
+
+    String server="http://kghy234.dothome.co.kr/overwatch/heroes_fix2.json";
+
 
     Button button;
     ArrayList<HeroItem> heroItems = new ArrayList<>();
@@ -37,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         adView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
-
+//        광고
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -72,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("Ads", "onAdClosed");
             }
         });
+
         button = (Button)findViewById(R.id.startBtn);
         readJson = new ReadJson();
         readJson.start();
@@ -87,28 +93,27 @@ public class MainActivity extends AppCompatActivity {
     class ReadJson extends Thread{
 
 
-        HeroItem heroItem;
 
-        AssetManager assetManager;
-        AssetManager.AssetInputStream ais;
         BufferedReader reader;
         String line;
 
-        JSONObject object;
-        JSONObject object2;
-        Iterator<String> keys;
 
         @Override
         public void run() {
             super.run();
 
-            assetManager = getResources().getAssets();
-            ais=null;
+
 
             try{
 
-                ais = (AssetManager.AssetInputStream)assetManager.open("json/heroes.json");
-                reader = new BufferedReader(new InputStreamReader(ais,"UTF-8"));
+                URL url = new URL(server);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                conn.setDefaultUseCaches(false);
+
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
 
                 line= null;
                 page="";
@@ -119,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                     page+=line;
                 }
 
-                ais.close();
+                Log.d("페이지:",page);
+
 
 //                object = new JSONObject(page);
 //                keys = object.keys();

@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class HeroesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<HeroItem> heroItems=new ArrayList<>();
-
+    ArrayList<AbilityItem> abilityItems=new ArrayList<>();
     HeroesAdapter hAdapter ;
     ReadJson readJson;
 
@@ -67,24 +67,8 @@ public class HeroesActivity extends AppCompatActivity {
         public void run() {
             super.run();
 
-//            assetManager = getResources().getAssets();
-//            ais=null;
 
             try{
-//
-//                ais = (AssetManager.AssetInputStream)assetManager.open("json/heroes.json");
-//                reader = new BufferedReader(new InputStreamReader(ais,"UTF-8"));
-//
-//                line= null;
-//                page="";
-//
-//                while((line=reader.readLine())!=null){
-//
-//                    Log.d("라인:",line);
-//                    page+=line;
-//                }
-//
-//                ais.close();
 
                 object = new JSONObject(page);
                 keys = object.keys();
@@ -125,26 +109,26 @@ public class HeroesActivity extends AppCompatActivity {
                     }
 
                     
-                    heroItem.skill01= object2.getString("1-imgURL");
-                    heroItem.icon01= object2.getString("1-skill");
-                    heroItem.skill02= object2.getString("2-imgURL");
-                    heroItem.icon02= object2.getString("2-skill");
+                    heroItem.icon01= object2.getString("1-imgURL");
+                    heroItem.skill01= object2.getString("1-skill");
+                    heroItem.icon02= object2.getString("2-imgURL");
+                    heroItem.skill02= object2.getString("2-skill");
 
-                    heroItem.skill03= object2.getString("3-imgURL");
-                    heroItem.icon03= object2.getString("3-skill");
-                    heroItem.skill04= object2.getString("4-imgURL");
-                    heroItem.icon04= object2.getString("4-skill");
+                    heroItem.icon03= object2.getString("3-imgURL");
+                    heroItem.skill03= object2.getString("3-skill");
+                    heroItem.icon04= object2.getString("4-imgURL");
+                    heroItem.skill04= object2.getString("4-skill");
 
 
                     Log.d("히어로액티비티","10");
                     if(object2.has("5-imgURL")){
-                        heroItem.skill05= object2.getString("5-imgURL");
-                        heroItem.icon05= object2.getString("5-skill");
+                        heroItem.icon05= object2.getString("5-imgURL");
+                        heroItem.skill05= object2.getString("5-skill");
                     }
 
                     Log.d("히어로액티비티","11");
                     if(object2.has("6-imgURL")) {
-                        heroItem.skill06 = object2.getString("6-imgURL");
+                        heroItem.icon06 = object2.getString("6-imgURL");
                         heroItem.skill06 = object2.getString("6-skill");
                     }
                     heroItem.ownName = object2.getString("ownname");
