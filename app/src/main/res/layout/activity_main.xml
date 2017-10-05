@@ -12,6 +12,7 @@
         android:text="BUTTON"
         android:visibility="invisible"
         android:onClick="clickBtn"
+        android:backgroundTint="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout

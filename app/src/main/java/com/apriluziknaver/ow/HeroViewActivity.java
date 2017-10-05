@@ -2,11 +2,14 @@ package com.apriluziknaver.ow;
 //http://kghy234.dothome.co.kr/overwatch/heroes_fix2.json
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.support.v4.view.*;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -24,6 +27,7 @@ public class HeroViewActivity extends AppCompatActivity {
     //    parsingThread parsingThread;
     int index;
 
+    TextView gostory;
 
 
     TextView name;
@@ -44,6 +48,11 @@ public class HeroViewActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AbliltyAdapter abliltyAdapter;
     HeroItem heroItem;
+    ImageView bg;
+    Typeface typeface;
+    TextView text;
+    ViewPager viewPager;
+    android.support.v4.view.PagerAdapter pagerAdapter;
 
 
 
@@ -51,25 +60,39 @@ public class HeroViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hero_view);
+
         Intent intent =getIntent();
         index = intent.getIntExtra("Index",0);
         heroItem=intent.getParcelableExtra("Hero");
-
+        typeface = Typeface.createFromAsset(getAssets(),"fonts/koverwatch.ttf");
         setAbilityItems();
 
+        gostory = (TextView)findViewById(R.id.story_btn);
+        gostory.setTypeface(typeface);
+        gostory.setOnClickListener(storyListener);
+
+        text = (TextView)findViewById(R.id.tv);
+        text.setTypeface(typeface);
         name=(TextView)findViewById(R.id.view_name);
+        name.setTypeface(typeface);
         title=(TextView)findViewById(R.id.view_title);
+        title.setTypeface(typeface);
         part = (TextView)findViewById(R.id.view_part);
+        part.setTypeface(typeface);
         diff = (RatingBar)findViewById(R.id.view_diff);
         bgHero = (ImageView)findViewById(R.id.view_bgHero);
+        bg=(ImageView)findViewById(R.id.view_bg);
+        String bgURL= "https://blzgdapipro-a.akamaihd.net/media/wallpaper/logo-burst-mobile.jpg";
+        Picasso.with(this).load(bgURL).into(bg);
 
         name.setText(heroItem.name);
         title.setText(heroItem.title);
-        part.setText(heroItem.part);
+        part.setText("type "+heroItem.part);
         diff.setRating(Integer.parseInt(heroItem.diff));
 
         String backURL="https://blzgdapipro-a.akamaihd.net/hero/"+names[index]+"/background-story.jpg";
         Picasso.with(this).load(backURL).into(bgHero);
+
 
 
         recyclerView = (RecyclerView) findViewById(R.id.rccability);
@@ -94,4 +117,12 @@ public class HeroViewActivity extends AppCompatActivity {
         }
 
     }
+
+    View.OnClickListener storyListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+
+
+        }
+    };
 }

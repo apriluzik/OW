@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -21,14 +25,17 @@ public class HeroesActivity extends AppCompatActivity {
     ArrayList<AbilityItem> abilityItems=new ArrayList<>();
     HeroesAdapter hAdapter ;
     ReadJson readJson;
+    ImageView bg ;
 
     String name;
     String img;
-
+    String bgURL= "https://blzgdapipro-a.akamaihd.net/media/wallpaper/logo-burst-mobile.jpg";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heroes);
+        bg = (ImageView)findViewById(R.id.heroes_bg);
+        Picasso.with(this).load(bgURL).into(bg);
 
         Log.d("히어로액티비티","1");
         recyclerView = (RecyclerView) findViewById(R.id.rccHero);
