@@ -32,10 +32,11 @@ public class HeroViewActivity extends AppCompatActivity {
 
     TextView name;
     TextView title;
-    TextView about2;
     TextView part;
     RatingBar diff;
     ImageView bgHero;
+
+
     TextView ownname;
     TextView age;
     TextView occ;
@@ -43,6 +44,7 @@ public class HeroViewActivity extends AppCompatActivity {
     TextView aff;
     TextView comment;
     TextView story;
+    TextView about2;
 
     ArrayList<AbilityItem> abilityItems = new ArrayList<>();
     RecyclerView recyclerView;
@@ -65,12 +67,14 @@ public class HeroViewActivity extends AppCompatActivity {
         index = intent.getIntExtra("Index",0);
         heroItem=intent.getParcelableExtra("Hero");
         typeface = Typeface.createFromAsset(getAssets(),"fonts/koverwatch.ttf");
+
         setAbilityItems();
 
         gostory = (TextView)findViewById(R.id.story_btn);
         gostory.setTypeface(typeface);
         gostory.setOnClickListener(storyListener);
 
+        about2 = (TextView)findViewById(R.id.about);
         text = (TextView)findViewById(R.id.tv);
         text.setTypeface(typeface);
         name=(TextView)findViewById(R.id.view_name);
@@ -89,6 +93,7 @@ public class HeroViewActivity extends AppCompatActivity {
         title.setText(heroItem.title);
         part.setText("type "+heroItem.part);
         diff.setRating(Integer.parseInt(heroItem.diff));
+        about2.setText(heroItem.about);
 
         String backURL="https://blzgdapipro-a.akamaihd.net/hero/"+names[index]+"/background-story.jpg";
         Picasso.with(this).load(backURL).into(bgHero);
@@ -96,7 +101,7 @@ public class HeroViewActivity extends AppCompatActivity {
 
 
         recyclerView = (RecyclerView) findViewById(R.id.rccability);
-        recyclerView.setLayoutManager(new GridLayoutManager(this,4));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         abliltyAdapter = new AbliltyAdapter(this,abilityItems);
         recyclerView.setAdapter(abliltyAdapter);
         abliltyAdapter.notifyDataSetChanged();
@@ -122,6 +127,10 @@ public class HeroViewActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
 
+          Intent intent = new Intent(HeroViewActivity.this,StoryActivity.class);
+
+            intent.putExtra("Hero",heroItem);
+            startActivity(intent);
 
         }
     };

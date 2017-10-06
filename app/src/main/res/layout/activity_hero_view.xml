@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,6 +7,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.apriluziknaver.ow.HeroViewActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
    <ImageView
        android:id="@+id/view_bg"
@@ -160,11 +164,18 @@
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/about"
+                    android:text="AA"
+                    android:layout_margin="8dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/ow_light_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rccability"
-            android:paddingRight="16dp"
-            android:paddingLeft="16dp"
+            android:padding="10dp"
             android:scrollbars="none"
             android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
@@ -175,5 +186,5 @@
     </android.support.v7.widget.CardView>
 
     </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
