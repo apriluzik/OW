@@ -2,6 +2,7 @@ package com.apriluziknaver.ow;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -30,10 +32,20 @@ public class HeroesActivity extends AppCompatActivity {
     String name;
     String img;
     String bgURL= "https://blzgdapipro-a.akamaihd.net/media/wallpaper/logo-burst-mobile.jpg";
+
+    Typeface typeface;
+    TextView infoText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heroes);
+
+        typeface = Typeface.createFromAsset(getAssets(),"fonts/koverwatch.ttf");
+        infoText = (TextView)findViewById(R.id.info_tv);
+        infoText.setTypeface(typeface);
+
         bg = (ImageView)findViewById(R.id.heroes_bg);
         Picasso.with(this).load(bgURL).into(bg);
 
@@ -58,10 +70,6 @@ public class HeroesActivity extends AppCompatActivity {
 
         HeroItem heroItem;
 
-        AssetManager assetManager;
-        AssetManager.AssetInputStream ais;
-        BufferedReader reader;
-        String line;
         String page = getIntent().getStringExtra("Page");
 
         JSONObject object;
@@ -129,15 +137,24 @@ public class HeroesActivity extends AppCompatActivity {
 
                     Log.d("히어로액티비티","10");
                     if(object2.has("5-imgURL")){
+
+
+
                         heroItem.icon05= object2.getString("5-imgURL");
                         heroItem.skill05= object2.getString("5-skill");
+
+
+
                     }
 
                     Log.d("히어로액티비티","11");
                     if(object2.has("6-imgURL")) {
+
+
                         heroItem.icon06 = object2.getString("6-imgURL");
                         heroItem.skill06 = object2.getString("6-skill");
                     }
+
                     heroItem.ownName = object2.getString("ownname");
                     heroItem.age = object2.getString("age");
                     heroItem.occ = object2.getString("occ");

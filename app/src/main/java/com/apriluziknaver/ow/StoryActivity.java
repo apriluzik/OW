@@ -70,7 +70,7 @@ public class StoryActivity extends AppCompatActivity {
         occ.setText("직업 : "+heroItem.occ);
         area.setText("활동근거지 : "+heroItem.bound);
         aff.setText("소속 : "+heroItem.aff);
-        comment.setText("¨"+heroItem.comment+"¨");
+        comment.setText(heroItem.comment);
 
         String s = heroItem.story;
 

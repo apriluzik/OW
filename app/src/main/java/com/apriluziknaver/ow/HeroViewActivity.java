@@ -3,6 +3,9 @@ package com.apriluziknaver.ow;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.*;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -75,6 +78,7 @@ public class HeroViewActivity extends AppCompatActivity {
         gostory.setOnClickListener(storyListener);
 
         about2 = (TextView)findViewById(R.id.about);
+        about2.setTypeface(typeface);
         text = (TextView)findViewById(R.id.tv);
         text.setTypeface(typeface);
         name=(TextView)findViewById(R.id.view_name);
@@ -83,7 +87,6 @@ public class HeroViewActivity extends AppCompatActivity {
         title.setTypeface(typeface);
         part = (TextView)findViewById(R.id.view_part);
         part.setTypeface(typeface);
-        diff = (RatingBar)findViewById(R.id.view_diff);
         bgHero = (ImageView)findViewById(R.id.view_bgHero);
         bg=(ImageView)findViewById(R.id.view_bg);
         String bgURL= "https://blzgdapipro-a.akamaihd.net/media/wallpaper/logo-burst-mobile.jpg";
@@ -91,12 +94,20 @@ public class HeroViewActivity extends AppCompatActivity {
 
         name.setText(heroItem.name);
         title.setText(heroItem.title);
-        part.setText("type "+heroItem.part);
-        diff.setRating(Integer.parseInt(heroItem.diff));
+        part.setText("type / "+heroItem.part);
         about2.setText(heroItem.about);
 
         String backURL="https://blzgdapipro-a.akamaihd.net/hero/"+names[index]+"/background-story.jpg";
         Picasso.with(this).load(backURL).into(bgHero);
+
+//        Ratingbar 별색 커스텀
+        diff = (RatingBar) findViewById(R.id.view_diff);
+        diff.setNumStars(Integer.parseInt(heroItem.diff));
+        diff.setMax(3);
+        diff.setStepSize(0.1f);
+        diff.setRating((float) 0.5);
+        Drawable ratingBarColor = diff.getProgressDrawable();
+        DrawableCompat.setTint(ratingBarColor, ContextCompat.getColor(this, R.color.ow_orange));
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,7 +33,7 @@
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/ow_light_gray"/>
+            android:textColor="@color/ow_orange"/>
 
     </LinearLayout>
     </android.support.v7.widget.CardView>
@@ -144,7 +144,7 @@
                 android:text="COMMENT"
                 android:gravity="center_horizontal"
                 android:textSize="20sp"
-                android:textColor="@color/ow_light_gray"
+                android:textColor="@color/ow_blue"
                 android:layout_marginBottom="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -163,4 +163,4 @@
 
     </android.support.v7.widget.CardView>
     </RelativeLayout>
-</ScrollView>
+</RelativeLayout>
