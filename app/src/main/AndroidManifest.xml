@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.apriluziknaver.ow">
+    package="com.mapriluzikgmail.heroes">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,11 +8,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="오버워치영웅소개"
+        android:label="옵치영웅보기!"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.mapriluzikgmail.heroes.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,13 +24,13 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".HeroesActivity" />
+        <activity android:name="com.mapriluzikgmail.heroes.HeroesActivity" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
-        <activity android:name=".HeroViewActivity" />
-        <activity android:name=".StoryActivity"></activity>
+        <activity android:name="com.mapriluzikgmail.heroes.HeroViewActivity" />
+        <activity android:name="com.mapriluzikgmail.heroes.StoryActivity"></activity>
     </application>
 
 </manifest>
